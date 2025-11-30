@@ -49,8 +49,8 @@ Installation / Setup
 
 Clone the repository:
 
-git clone <your-repo-link>
-cd <repo-folder>
+git clone https://github.com/Ramyashree034/Attendance-Tracking-System.git
+cd attendance-system
 
 
 Install dependencies:
@@ -60,7 +60,7 @@ npm install
 
 Start the development server:
 
-npm start
+npm run dev
 
 
 Backend API:
