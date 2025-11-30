@@ -25,19 +25,15 @@ app.use('/api/reports', require('./routes/reports'));
 app.use('/api/auth', require('./routes/auth'));
 
 // =====================
-// Serve Frontend (Production)
+// Serve Frontend (Vite React)
 // =====================
-if (process.env.NODE_ENV === 'production') {
-  const frontendPath = path.join(__dirname, 'frontend', 'dist'); // Vite build folder
+const frontendPath = path.join(__dirname, 'frontend', 'dist');
+app.use(express.static(frontendPath));
 
-  // Serve static files from dist
-  app.use(express.static(frontendPath));
-
-  // Return index.html for all unmatched routes
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
-  });
-}
+// Handle all unmatched routes (React routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
+});
 
 // =====================
 // Start Server
