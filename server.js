@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 
   // All unmatched routes should return the frontend's index.html
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
   });
 }
 
@@ -37,3 +37,4 @@ if (process.env.NODE_ENV === 'production') {
 // =====================
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
